@@ -4,7 +4,7 @@ from distutils.core import setup
 setup(
     name='cookiecutter-albalib',
     packages=[],
-    version='0.1.0',
+    version='0.2.0',
     description='Cookiecutter template ALBA controls python package',
     author='Tiago Coutinho',
     author_email='tcoutinho@cells.es',
