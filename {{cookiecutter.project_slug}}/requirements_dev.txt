@@ -6,9 +6,15 @@ flake8==3.7.8
 tox==3.14.0
 coverage==4.5.4
 Sphinx==1.8.5
+recommonmark==0.6.0
 twine==1.14.0
+connio == 0.1.0
 {% if cookiecutter.command_line_interface|lower == 'click' -%}
 Click==7.0{% endif %}
 {% if cookiecutter.use_pytest == 'y' -%}
 pytest==4.6.5
 pytest-runner==5.1{% endif %}
+{% if cookiecutter.tango_server != 'n' -%}
+pytango==9.3.2{% endif %}
+{% if cookiecutter.simulator -%}
+sinstruments==1.1.0{% endif %}

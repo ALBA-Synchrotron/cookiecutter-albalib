@@ -1,4 +1,3 @@
-{% set klass = cookiecutter.project_slug.capitalize() -%}
 {% set is_open_source = cookiecutter.open_source_license != 'Not open source' -%}
 # -*- coding: utf-8 -*-
 #
@@ -8,10 +7,4 @@
 {% if is_open_source -%}
 # Distributed under the {{ cookiecutter.open_source_license }}. See LICENSE for more info.
 {% endif %}
-"""Top-level package for {{ cookiecutter.project_name }}."""
-
-__author__ = """{{ cookiecutter.full_name }}"""
-__email__ = '{{ cookiecutter.email }}'
-__version__ = '{{ cookiecutter.version }}'
-
-from .core import {{ klass }}
+"""Tango module for {{ cookiecutter.project_name }}."""

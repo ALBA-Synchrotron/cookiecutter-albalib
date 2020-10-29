@@ -23,7 +23,7 @@ brew install travis
 Windows and Linux
 ------------------
 
-Follow the official Travis CLI installationinstructions for your operating system:
+Follow the official Travis CLI installation instructions for your operating system:
 
 https://github.com/travis-ci/travis.rb#installation
 

@@ -1,16 +1,34 @@
+{% set is_open_source = cookiecutter.open_source_license != 'Not open source' -%}
 #!/usr/bin/env python
-
+# -*- coding: utf-8 -*-
+#
+# This file is part of the {{ cookiecutter.project_name }} project
+#
+# Copyright (c) {% now 'local', '%Y' %} {{ cookiecutter.full_name }}
+{% if is_open_source -%}
+# Distributed under the {{ cookiecutter.open_source_license }}. See LICENSE for more info.
+{% endif %}
 """The setup script."""
 
 from setuptools import setup, find_packages
 
-with open('README.rst') as readme_file:
+with open('README.md') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
+with open('HISTORY.md') as history_file:
     history = history_file.read()
 
-requirements = [{%- if cookiecutter.command_line_interface|lower == 'click' %}'Click>=7.0',{%- endif %} ]
+requirements = [
+    "connio",
+    {% if cookiecutter.command_line_interface|lower == 'click' %}'Click>=7.0',{%- endif %}
+]
+
+extra_requirements = {
+    {% if cookiecutter.tango_server != 'n' -%}"tango": ["pytango"],{%- endif %}
+    {% if cookiecutter.simulator == 'y' -%}"simulator": ["sinstruments>=1"],{%- endif %}
+}
+if extra_requirements:
+    extra_requirements["all"] = list(set.union(*(set(i) for i in extra_requirements.values())))
 
 setup_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest-runner',{%- endif %} ]
 
@@ -40,20 +58,26 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
     description="{{ cookiecutter.project_short_description }}",
-    {%- if 'no' not in cookiecutter.command_line_interface|lower %}
     entry_points={
         'console_scripts': [
+{%- if 'no' not in cookiecutter.command_line_interface|lower %}
             '{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}.cli:main',
+{%- endif %}
+{%- if cookiecutter.tango_server != 'n' %}
+            '{{ cookiecutter.tango_server }}={{ cookiecutter.project_slug }}.tango.server:main [tango]',
+{%- endif %}
         ],
     },
-    {%- endif %}
     install_requires=requirements,
+    extras_require=extra_requirements,
 {%- if cookiecutter.open_source_license in license_classifiers %}
     license="{{ cookiecutter.open_source_license }}",
 {%- endif %}
     long_description=readme + '\n\n' + history,
+    long_description_content_type="text/markdown",
     include_package_data=True,
     keywords='{{ cookiecutter.project_slug }}',
     name='{{ cookiecutter.project_slug }}',

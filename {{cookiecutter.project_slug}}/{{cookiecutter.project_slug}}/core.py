@@ -8,10 +8,14 @@
 {% if is_open_source -%}
 # Distributed under the {{ cookiecutter.open_source_license }}. See LICENSE for more info.
 {% endif %}
-"""Top-level package for {{ cookiecutter.project_name }}."""
+"""Core {{ klass }} module."""
 
-__author__ = """{{ cookiecutter.full_name }}"""
-__email__ = '{{ cookiecutter.email }}'
-__version__ = '{{ cookiecutter.version }}'
 
-from .core import {{ klass }}
+class {{ klass }}:
+    """The central {{ klass }}"""
+
+    def __init__(self, conn):
+        self._conn = conn
+
+    def idn(self):
+        return self._conn.write_readline(b"*IDN?\n")

@@ -1,7 +1,15 @@
+{% set is_open_source = cookiecutter.open_source_license != 'Not open source' -%}
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
+# This file is part of the {{ cookiecutter.project_name }} project
+#
+# Copyright (c) {% now 'local', '%Y' %} {{ cookiecutter.full_name }}
+{% if is_open_source -%}
+# Distributed under the {{ cookiecutter.open_source_license }}. See LICENSE for more info.
+{% endif %}
 # {{ cookiecutter.project_slug }} documentation build configuration file, created by
-# sphinx-quickstart on Fri Jun  9 13:47:02 2017.
+# sphinx-quickstart on Fri Jun  9 13:47:02 2020.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -31,7 +39,7 @@ import {{ cookiecutter.project_slug }}
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'recommonmark']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -40,7 +48,10 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # The master toctree document.
 master_doc = 'index'
@@ -157,6 +168,3 @@ texinfo_documents = [
      'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-

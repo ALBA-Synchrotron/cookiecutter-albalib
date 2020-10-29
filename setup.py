@@ -2,15 +2,15 @@
 
 from distutils.core import setup
 setup(
-    name='cookiecutter-pypackage',
+    name='cookiecutter-albalib',
     packages=[],
     version='0.1.0',
-    description='Cookiecutter template for a Python package',
-    author='Audrey Roy Greenfeld',
-    license='BSD',
-    author_email='aroy@alum.mit.edu',
-    url='https://github.com/audreyr/cookiecutter-pypackage',
-    keywords=['cookiecutter', 'template', 'package', ],
+    description='Cookiecutter template ALBA controls python package',
+    author='Tiago Coutinho',
+    author_email='tcoutinho@cells.es',
+    license='GPLv3+',
+    url='https://github.com/alba-synchrotron/cookiecutter-albalib',
+    keywords=['cookiecutter', 'template', 'package', 'ALBA'],
     python_requires='>=3.5',
     classifiers=[
         'Development Status :: 4 - Beta',

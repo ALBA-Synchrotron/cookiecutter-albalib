@@ -5,13 +5,11 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   readme
+   ../README.md
    installation
    usage
-   modules
-   contributing
-   {% if cookiecutter.create_author_file == 'y' -%}authors
-   {% endif -%}history
+   ../CONTRIBUTING.md
+   ../HISTORY.md
 
 Indices and tables
 ==================

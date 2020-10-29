@@ -8,10 +8,27 @@
 {% if is_open_source -%}
 # Distributed under the {{ cookiecutter.open_source_license }}. See LICENSE for more info.
 {% endif %}
-"""Top-level package for {{ cookiecutter.project_name }}."""
+"""
+.. code-block:: yaml
 
-__author__ = """{{ cookiecutter.full_name }}"""
-__email__ = '{{ cookiecutter.email }}'
-__version__ = '{{ cookiecutter.version }}'
+    devices:
+    - class: {{ klass }}
+      package: {{ cookiecutter.project_slug }}.simulator
+      transports:
+      - type: tcp
+        url: :5000
 
-from .core import {{ klass }}
+A simple *nc* client can be used to connect to the instrument:
+
+    $ nc 0 5000
+    *IDN?
+    GE,Pace5000,204683,1.01A
+"""
+
+from sinstruments.simulator import BaseDevice
+
+
+class {{ klass }}(BaseDevice):
+
+    def handle_message(self, line):
+        pass
