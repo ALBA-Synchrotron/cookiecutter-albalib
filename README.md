@@ -9,7 +9,7 @@ $ pip install cookiecutter
 
 To create a new python project do:
 ```console
-$ cookiecutter gh:alba-syncrotron/cookiecutter-alba
+$ cookiecutter gh:alba-syncrotron/cookiecutter-albalib
 full_name [ALBA controls team]:
 email [controls@cells.es]:
 github_username [alba-synchrotron]:
