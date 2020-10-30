@@ -1,15 +1,32 @@
 # ALBA python library cookiecutter
 
-Use it to bootstrap an python software project.
+Use it to bootstrap an ALBA python software project.
+
+Actually, it is institute agnostic so it can be used for any python library.
+It is just an extension of the well known cookiecutter pypackage with options to create
+tango server structure, simulator and a base core class with a connection object.
+
+Don't take this as a hard structure to which all your code should abide. Software design
+is a creative process. You should feel free to change whatever comes out of the bootstrap
+to fit your needs.
+
+## Installation
 
 First, make sure cookiecutter is installed in your python environment:
 ```console
 $ pip install cookiecutter
 ```
 
+## Usage
+
 To create a new python project do:
 ```console
 $ cookiecutter gh:alba-syncrotron/cookiecutter-albalib
+```
+
+The script is interactive and should look something like this:
+
+```console
 full_name [ALBA controls team]:
 email [controls@cells.es]:
 github_username [alba-synchrotron]:
@@ -42,7 +59,7 @@ Notice that we only need to type a few values. for most options we try to have a
 
 This will create the directory structure:
 
-```
+```console
 demo
 ├── CONTRIBUTING.md
 ├── demo
