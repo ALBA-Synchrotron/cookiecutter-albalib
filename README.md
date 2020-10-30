@@ -60,7 +60,9 @@ Notice that we only need to type a few values. for most options we try to have a
 This will create the directory structure:
 
 ```console
-demo
+
+$ tree
+.
 ├── CONTRIBUTING.md
 ├── demo
 │   ├── core.py
@@ -68,6 +70,7 @@ demo
 │   ├── simulator.py
 │   └── tango
 │       ├── __init__.py
+│       ├── __main__.py
 │       └── server
 │           ├── demo.py
 │           └── __init__.py
