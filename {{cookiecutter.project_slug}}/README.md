@@ -45,7 +45,8 @@ consisting of two methods (either the sync or async version is supported):
   `async write(buff: bytes) -> None`
 
 A library that supports this API is [sockio](https://pypi.org/project/sockio/)
-(gepace comes pre-installed so you don't have to worry about installing it).
+({{ cookiecutter.project_name }} comes pre-installed so you don't have to worry
+about installing it).
 
 This library includes both async and sync versions of the TCP object. It also
 supports a set of features like re-connection and timeout handling.
@@ -61,9 +62,9 @@ from {{ cookiecutter.project_slug }} import {{ klass }}
 
 async def main():
     tcp = TCP("192.168.1.123", 5000)  # use host name or IP
-    pace = {{ klass }}(tcp)
+    {{ cookiecutter.project_slug }}_dev = {{ klass }}(tcp)
 
-    idn = await pace.idn()
+    idn = await {{ cookiecutter.project_slug }}_dev.idn()
     print("Connected to {} ({})".format(idn))
 
 
