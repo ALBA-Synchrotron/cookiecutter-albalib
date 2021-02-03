@@ -21,7 +21,7 @@ $ pip install cookiecutter
 
 To create a new python project do:
 ```console
-$ cookiecutter gh:alba-syncrotron/cookiecutter-albalib
+$ cookiecutter gh:alba-synchrotron/cookiecutter-albalib
 ```
 
 The script is interactive and should look something like this:
